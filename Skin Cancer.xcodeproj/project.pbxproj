@@ -14,6 +14,8 @@
 		E5AB4566214178C300FB392E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5AB4564214178C300FB392E /* LaunchScreen.storyboard */; };
 		E5AB4571214178C400FB392E /* Skin_CancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB4570214178C400FB392E /* Skin_CancerTests.swift */; };
 		E5AB457C214178C400FB392E /* Skin_CancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AB457B214178C400FB392E /* Skin_CancerUITests.swift */; };
+		E5B78CC72142ED2400EC4BD1 /* melanoma.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E5B78CC62142ED2400EC4BD1 /* melanoma.mlmodel */; };
+		E5B78CC92142EE3D00EC4BD1 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B78CC82142EE3D00EC4BD1 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		E5AB4577214178C400FB392E /* Skin CancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Skin CancerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AB457B214178C400FB392E /* Skin_CancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin_CancerUITests.swift; sourceTree = "<group>"; };
 		E5AB457D214178C400FB392E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5B78CC62142ED2400EC4BD1 /* melanoma.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = melanoma.mlmodel; sourceTree = "<group>"; };
+		E5B78CC82142EE3D00EC4BD1 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +101,14 @@
 		E5AB455A214178C200FB392E /* Skin Cancer */ = {
 			isa = PBXGroup;
 			children = (
+				E5B78CC62142ED2400EC4BD1 /* melanoma.mlmodel */,
 				E5AB455B214178C200FB392E /* AppDelegate.swift */,
 				E5AB455D214178C200FB392E /* ViewController.swift */,
 				E5AB455F214178C200FB392E /* Main.storyboard */,
 				E5AB4562214178C300FB392E /* Assets.xcassets */,
 				E5AB4564214178C300FB392E /* LaunchScreen.storyboard */,
 				E5AB4567214178C300FB392E /* Info.plist */,
+				E5B78CC82142EE3D00EC4BD1 /* MainViewController.swift */,
 			);
 			path = "Skin Cancer";
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 			files = (
 				E5AB455E214178C200FB392E /* ViewController.swift in Sources */,
 				E5AB455C214178C200FB392E /* AppDelegate.swift in Sources */,
+				E5B78CC72142ED2400EC4BD1 /* melanoma.mlmodel in Sources */,
+				E5B78CC92142EE3D00EC4BD1 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +441,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PBPX848E2V;
 				INFOPLIST_FILE = "Skin Cancer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -451,6 +460,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PBPX848E2V;
 				INFOPLIST_FILE = "Skin Cancer/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
