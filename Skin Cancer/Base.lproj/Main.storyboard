@@ -91,9 +91,20 @@
                                         <rect key="frame" x="0.0" y="30" width="375" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
                                         <state key="normal" title="pick another image"/>
+                                        <connections>
+                                            <action selector="pickImage:" destination="TgN-am-MYp" eventType="touchUpInside" id="QBD-XM-JoP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hyY-9n-7KY">
+                                <rect key="frame" x="139" y="559" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Take a picture"/>
+                                <connections>
+                                    <action selector="camButtonTapped:" destination="TgN-am-MYp" eventType="touchUpInside" id="yqO-MJ-esK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -107,6 +118,10 @@
                         <viewLayoutGuide key="safeArea" id="Txc-XQ-i6t"/>
                     </view>
                     <navigationItem key="navigationItem" title="Mole analyzer" id="wox-aV-xaT"/>
+                    <connections>
+                        <outlet property="answerLabel" destination="24l-FY-DC1" id="lrW-Ji-jAU"/>
+                        <outlet property="scene" destination="rTO-c0-ZIf" id="d72-Mf-9p1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pz2-5o-6yg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
