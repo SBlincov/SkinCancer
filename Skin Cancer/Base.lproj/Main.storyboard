@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Mole analyzer-->
+        <!--Анализ родинки-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Skin_Cancer" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,30 +18,60 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Дисклеймер" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQW-xX-iOx">
-                                <rect key="frame" x="137" y="198" width="101" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ВНИМАНИЕ!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQW-xX-iOx">
+                                <rect key="frame" x="129" y="114" width="118" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyG-uj-mG1">
-                                <rect key="frame" x="128" y="318" width="119" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Все ок, погнали!"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="16" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Q4-dK-h0R">
+                                <rect key="frame" x="16" y="166" width="343" height="304.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <mutableString key="content">     Данное приложение позволяет узнать тип вашей родинки.
+
+     Определение типа родинки происходит при помощи алгоритмов машинного обучения. 
+Точность метода: 92%.
+ 
+     Данное приложение не является заменой врача!
+
+     Если приложение определило вашу родинку как "Злокачественную"- незамедлительно обратитесь ко врачу-онкологу!</mutableString>
+                                        <attributes>
+                                            <font key="NSFont" metaFont="system" size="17"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KyG-uj-mG1">
+                                <rect key="frame" x="85" y="554" width="205" height="30"/>
+                                <state key="normal" title="Понятно. Перейти к анализу"/>
                                 <connections>
                                     <segue destination="TgN-am-MYp" kind="show" id="PKw-mE-GG0"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Q4-dK-h0R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="421-n9-wjd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="KyG-uj-mG1" secondAttribute="bottom" constant="83" id="4hR-1a-8TQ"/>
+                            <constraint firstItem="tQW-xX-iOx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="57e-VD-SUb"/>
+                            <constraint firstItem="6Q4-dK-h0R" firstAttribute="top" secondItem="tQW-xX-iOx" secondAttribute="bottom" constant="31" id="Hof-lp-mz7"/>
+                            <constraint firstItem="tQW-xX-iOx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="Tuq-xO-ZeB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KyG-uj-mG1" secondAttribute="trailing" constant="85" id="UM5-WN-chp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6Q4-dK-h0R" secondAttribute="trailing" constant="16" id="Uuu-CO-7g2"/>
+                            <constraint firstItem="KyG-uj-mG1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="85" id="fqW-hW-1Hb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tQW-xX-iOx" secondAttribute="trailing" constant="128" id="p8g-lm-q85"/>
+                            <constraint firstItem="KyG-uj-mG1" firstAttribute="top" secondItem="6Q4-dK-h0R" secondAttribute="bottom" constant="83.5" id="qiT-Ox-nGs"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Mole analyzer" id="BiZ-iy-fgb"/>
+                    <navigationItem key="navigationItem" title="Анализ родинки" id="BiZ-iy-fgb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1169" y="791"/>
+            <point key="canvasLocation" x="1168.8" y="790.25487256371821"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zfw-it-Ga6">
@@ -61,7 +91,7 @@
             </objects>
             <point key="canvasLocation" x="301.60000000000002" y="791.15442278860576"/>
         </scene>
-        <!--Mole analyzer-->
+        <!--Анализ родинки-->
         <scene sceneID="nti-zM-3Hp">
             <objects>
                 <viewController id="TgN-am-MYp" customClass="MainViewController" customModule="Skin_Cancer" customModuleProvider="target" sceneMemberID="viewController">
@@ -78,7 +108,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qCm-MS-zpw">
                                 <rect key="frame" x="0.0" y="439" width="375" height="90"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24l-FY-DC1">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24l-FY-DC1">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="b4X-GT-YLz"/>
@@ -117,7 +147,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Txc-XQ-i6t"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Mole analyzer" id="wox-aV-xaT"/>
+                    <navigationItem key="navigationItem" title="Анализ родинки" id="wox-aV-xaT"/>
                     <connections>
                         <outlet property="answerLabel" destination="24l-FY-DC1" id="lrW-Ji-jAU"/>
                         <outlet property="scene" destination="rTO-c0-ZIf" id="d72-Mf-9p1"/>

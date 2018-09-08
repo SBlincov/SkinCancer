@@ -34,7 +34,7 @@ class MainViewController: UIViewController {
         
         super.viewDidLoad()
         
-        guard let image = UIImage(named: "train_night") else {
+        guard let image = UIImage(named: "example_photo") else {
             fatalError("no starting image")
         }
         
@@ -129,10 +129,16 @@ extension MainViewController {
             }
             
             DispatchQueue.main.async { [weak self] in
-                self?.answerLabel.text = "\(Int(topResult.confidence * 100))% it's a \(topResult.identifier)"
-                if topResult.identifier == "malignant" && topResult.confidence * 100 > 90.0{
+                if topResult.confidence * 100 < 90.0 {
+                    self?.answerLabel.text = "Не вижу родинку на фотографии"
+                }
+                if topResult.identifier == "malignant" && topResult.confidence * 100 >= 90.0{
                     self?.answerLabel.text = "Злокачественная родинка! Вероятность: \(topResult.confidence*100)%"
                 }
+                if topResult.identifier == "benign" && (topResult.confidence * 100) > 40.0 {
+                    self?.answerLabel.text = "Это обычная родинка."
+                }
+                
             }
         }
         
