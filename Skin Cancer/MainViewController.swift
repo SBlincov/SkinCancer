@@ -16,14 +16,16 @@ class MainViewController: UIViewController {
     @IBOutlet weak var answerLabel: UILabel!
     
     @IBAction func camButtonTapped(_ sender: Any) {
-        let imagePicker = UIImagePickerController() // 1
-        imagePicker.delegate = self // 2
-        imagePicker.sourceType = UIImagePickerControllerSourceType.camera // 3
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.camera
+        imagePicker.allowsEditing = true
         
         // для выбора только фотокамеры, не для записи видео
         imagePicker.showsCameraControls = true // 4
         
-        self.present(imagePicker, animated: true, completion: nil) // 5
+        
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -44,7 +46,6 @@ class MainViewController: UIViewController {
         
         detectScene(image: ciImage)
     }
-        // Do any additional setup after loading the view.
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -69,7 +70,8 @@ extension MainViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true)
         
-        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+        
+        guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else {
             fatalError("couldn't load image from Photos")
         }
         
@@ -88,12 +90,10 @@ extension MainViewController {
     func detectScene(image: CIImage) {
         answerLabel.text = "detecting scene..."
         
-        // Load the ML model through its generated class
         guard let model = try? VNCoreMLModel(for: melanoma().model) else {
             fatalError("can't load Places ML model")
         }
         
-        // Create a Vision request with completion handler
         let request = VNCoreMLRequest(model: model) { [weak self] request, error in
             guard let results = request.results as? [VNClassificationObservation],
                 let topResult = results.first else {
@@ -105,7 +105,6 @@ extension MainViewController {
             }
         }
         
-        // Run the Core ML GoogLeNetPlaces classifier on global dispatch queue
         let handler = VNImageRequestHandler(ciImage: image)
         DispatchQueue.global(qos: .userInteractive).async {
             do {
