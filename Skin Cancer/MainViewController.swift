@@ -70,18 +70,46 @@ extension MainViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         dismiss(animated: true)
         
+        var isOriginalImage = true
         
-        guard let image = info[UIImagePickerControllerEditedImage] as? UIImage else {
-            fatalError("couldn't load image from Photos")
+        guard let image = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Pizdec")
         }
-        
         scene.image = image
         
+        var imageEdited = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        if info[UIImagePickerControllerEditedImage] != nil {
+            imageEdited = info[UIImagePickerControllerEditedImage] as? UIImage
+        } else {
+            imageEdited = nil
+        }
+        
+        if info[UIImagePickerControllerEditedImage] != nil {
+            scene.image = info[UIImagePickerControllerEditedImage] as? UIImage
+            isOriginalImage = false
+        } else {
+            if info[UIImagePickerControllerOriginalImage] != nil {
+                scene.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+            } else {
+                fatalError("couldn't load image from Photos")
+            }
+        }
+       
         guard let ciImage = CIImage(image: image) else {
             fatalError("couldn't convert UIImage to CIImage")
         }
         
-        detectScene(image: ciImage)
+        var ciImageEdited = CIImage(image: image)
+        
+        if isOriginalImage == false {
+            ciImageEdited = CIImage(image: imageEdited!)
+        }
+        if isOriginalImage == true {
+            detectScene(image: ciImage)
+        } else {
+            detectScene(image: ciImageEdited!)
+        }
         
     }
 }
@@ -102,6 +130,9 @@ extension MainViewController {
             
             DispatchQueue.main.async { [weak self] in
                 self?.answerLabel.text = "\(Int(topResult.confidence * 100))% it's a \(topResult.identifier)"
+                if topResult.identifier == "malignant" && topResult.confidence * 100 > 90.0{
+                    self?.answerLabel.text = "Злокачественная родинка! Вероятность: \(topResult.confidence*100)%"
+                }
             }
         }
         
